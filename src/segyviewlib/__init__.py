@@ -1,9 +1,7 @@
 import os.path as path
 
 img_prefix = path.abspath(path.join(path.dirname(path.abspath(__file__)), "resources", "img"))
-
-if not path.exists(img_prefix):
-    img_prefix = path.abspath(path.join(path.dirname(path.abspath(__file__)), "..", "..", "resources", "img"))
+print(path.abspath(__file__))
 
 
 def resource_icon_path(name):

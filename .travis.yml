@@ -25,15 +25,13 @@ before_script:
   - conda update -q conda
   - conda info -a
 
-  - conda install numpy cmake pyqt=4 matplotlib
+  - conda install pyqt=4
 
   - pip install segyio
+  - pip install pytest
+  - pip install numpy
+  - pip install matplotlib
 
-  - cmake --version
-  - mkdir build
-  - cd build
-  - cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
-  - make
-  - export LD_LIBRARY_PATH=$PWD
+  - export PYTHONPATH=$PWD/src
 
-script: make && ctest --output-on-failure
+script: pytest
